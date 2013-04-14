@@ -30,11 +30,11 @@ public class EntityPlayer extends EntityLiving {
 	}
 	
 	public void moveBackward(int speed, World w) {
-		double xDelta = Math.sin(Math.toRadians(this.rotation)) * -speed;
-		double yDelta = Math.cos(Math.toRadians(this.rotation)) * -speed;
+		double xDelta = Math.sin(Math.toRadians(this.rotation)) * speed;
+		double yDelta = Math.cos(Math.toRadians(this.rotation)) * speed;
 		int xInt = (int)xDelta;
 		int yInt = (int)yDelta;
-		Location toMove = new Location(this.getMinX() + xInt, this.getMinY() + yInt);
+		Location toMove = new Location(this.getMinX() - xInt, this.getMinY() - yInt);
 		if(w.canMove(this.getPoints()))
 			this.setLocation(toMove);
 	}
@@ -70,7 +70,7 @@ public class EntityPlayer extends EntityLiving {
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		Cache.IMAGE_HANDLER.renderImage32(Cache.IMAGE_HANDLER.getTextureByName("player"), -16, -16);
+		Cache.IMAGE_HANDLER.renderImage32(Cache.IMAGE_HANDLER.getTextureByName("player"), 400 -(this.getWidth()/2), 300 - (this.getWidth()/2));
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glPopMatrix();
 	}

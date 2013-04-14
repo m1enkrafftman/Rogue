@@ -53,18 +53,11 @@ public class InGame extends GuiScreen {
 		this.preRender();
 		//GL11.glTranslated(this.thePlayer.getMinX() - (Cache.width/2), this.thePlayer.getMinY() - (Cache.height/2), 0);
 		this.theWorld.renderWorld();
-		this.doPlayerRender();
+		GL11.glRotatef(this.thePlayer.rotation, 0, 0, 1);
+		this.thePlayer.renderLiving();
 		FontRenderer.drawStringWithColor("Rogue", 3, 12, 0xffffffff);
 		this.renderDebug();
 		GL11.glPopMatrix();
-	}
-	
-	public void doPlayerRender() {
-		GL11.glTranslated(400, 300, 0);
-		GL11.glRotatef(-this.thePlayer.rotation, 0, 0, 1);
-		this.thePlayer.renderLiving();
-		GL11.glRotatef(this.thePlayer.rotation, 0, 0, 1);
-		GL11.glTranslated(-400, -300, 0);
 	}
 	
 	public void renderDebug() {
