@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
+import com.m1enkrafftman.rogue.GameLoop;
 import com.m1enkrafftman.rogue.Rogue;
 import com.m1enkrafftman.rogue.backend.DisplayFactory;
 import com.m1enkrafftman.rogue.entity.EntityPlayer;
 import com.m1enkrafftman.rogue.external.BackTile;
 import com.m1enkrafftman.rogue.external.Collideable;
 import com.m1enkrafftman.rogue.external.World;
+import com.m1enkrafftman.rogue.external.level.Level;
 import com.m1enkrafftman.rogue.gui.FontRenderer;
 import com.m1enkrafftman.rogue.gui.GuiScreen;
 import com.m1enkrafftman.rogue.misc.Cache;
@@ -21,18 +23,21 @@ public class InGame extends GuiScreen {
 	private ArrayList<String> debug;
 	private boolean toDebug;
 	private World theWorld;
+	private Level currentLevel;
 	
 	public InGame() {
 		super();
-		this.thePlayer = new EntityPlayer(0, 0, 16, 0xff00ff00);
-		this.theWorld = new World(50, 50);
+		this.thePlayer = new EntityPlayer(0, 0, 32, 0xff00ff00);
+		this.currentLevel = new Level(1);
+		this.theWorld = new World(this.currentLevel.getWorldFromLevel());
 		debug = new ArrayList<>();
 		this.toDebug = false;
 	}
 	
-	public InGame(EntityPlayer p, World w) {
+	public InGame(EntityPlayer p, World w, Level l) {
 		super();
 		this.thePlayer = p;
+		this.currentLevel = l;
 		this.theWorld = w;
 		debug = new ArrayList<>();
 		this.toDebug = false;
@@ -87,6 +92,10 @@ public class InGame extends GuiScreen {
 		case(Keyboard.KEY_G):
 			this.toDebug = !this.toDebug;
 			break;
+		
+		case(Keyboard.KEY_ESCAPE):
+			GameLoop.currentScreen = new PauseMenu(this.thePlayer, this.theWorld, this.currentLevel);
+			break;
 		}
 	}
 	
@@ -106,6 +115,8 @@ public class InGame extends GuiScreen {
 	@Override
 	public void handleLogic() {
 		this.checkForMovement();
+		Cache.pX = this.thePlayer.getMinX();
+		Cache.pY = this.thePlayer.getMinY();
 	}
 
 }

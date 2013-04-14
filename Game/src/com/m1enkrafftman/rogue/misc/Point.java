@@ -13,10 +13,12 @@ public class Point {
 		if(this.x > c.getX() && this.x < c.getX() + i &&
 				this.y > c.getY() && this.equals(y < c.getY() + i))
 			return true;
+		/**
 		System.out.println("==========[ Top ]==============");
 		System.out.println("" + c.getX() + ", " +c.getY());
 		System.out.println("" + this.x + ", " +this.y);
 		System.out.println("==========[Bottom]=============");
+		*/
 		return false;
 	}
 

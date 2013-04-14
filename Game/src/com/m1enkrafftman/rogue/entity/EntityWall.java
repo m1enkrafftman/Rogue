@@ -1,5 +1,6 @@
 package com.m1enkrafftman.rogue.entity;
 
+import com.m1enkrafftman.rogue.misc.Cache;
 import com.m1enkrafftman.rogue.render.MiscRender;
 
 public class EntityWall extends Entity{
@@ -13,6 +14,6 @@ public class EntityWall extends Entity{
 	}
 	
 	public void renderWall() {
-		MiscRender.renderBasicCube(this.getMinX(), this.getMinY(), this.getWidth(), this.getColor());
+		MiscRender.renderBasicCube(this.getMinX() - Cache.pX, this.getMinY()- Cache.pY, this.getWidth(), this.getColor());
 	}
 }

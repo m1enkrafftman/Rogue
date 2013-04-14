@@ -16,7 +16,7 @@ import com.m1enkrafftman.rogue.render.ImageHandler;
 public class GameLoop {
 
 	/** Whether the game is running. */
-	public volatile boolean running = true;
+	public static volatile boolean running = true;
 	
 	public final String title = "Rogue";
 	
@@ -100,10 +100,10 @@ public class GameLoop {
 	}
 
 	public void runGame() {
-		GameLoop.currentScreen = new MainMenu(GameLoop.instance);
-		while(this.running) {
+		GameLoop.currentScreen = new MainMenu();
+		while(running) {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-			if(Display.isCloseRequested()) this.running = false;
+			if(Display.isCloseRequested()) running = false;
 			this.logic();
 			this.render();
 			this.calculateFPS();

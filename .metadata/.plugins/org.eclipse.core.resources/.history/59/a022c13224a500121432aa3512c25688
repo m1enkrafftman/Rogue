@@ -1,0 +1,13 @@
+package com.m1enkrafftman.rogue.external.level;
+
+public class Level {
+	
+	private String level;
+	
+	public Level(int lvl) {
+		this.level = "level" + lvl;
+	}
+	
+	
+
+}

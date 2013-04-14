@@ -44,7 +44,6 @@ public class WorldStore {
 	
 	public boolean canMove(ArrayList<Point> points) {
 		for(Point p : points) {
-			System.out.println("Passing Location: " + this.x + ", " + this.y);
 			if(p.existsIn(new Location(this.x, this.y), 16)) {
 				return false;
 			}

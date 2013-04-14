@@ -8,6 +8,9 @@ public class Cache {
 	public static int height = 600;
 	public static int fps = 0;
 	
+	public static int pX = 0;
+	public static int pY = 0;
+	
 	public static ImageHandler IMAGE_HANDLER;
 	
 }

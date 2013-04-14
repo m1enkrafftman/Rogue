@@ -16,6 +16,12 @@ public class MainMenu extends GuiScreen {
 		super();
 		this.getButtons().add(new GuiButton("Singleplayer", 300, 280, 200, 40, 0xff0000ff));
 	}
+	
+	public MainMenu() {
+		super();
+		this.getButtons().add(new GuiButton("Singleplayer", 300, 280, 200, 40, 0xff0000ff));
+		this.getButtons().add(new GuiButton("Exit Game", 300, 340, 200, 40, 0xff0000ff));
+	}
 
 	public void preRender() {
 		GL11.glMatrixMode(GL11.GL_PROJECTION);
@@ -62,6 +68,10 @@ public class MainMenu extends GuiScreen {
 				switch(b.getName()) {
 				case("Singleplayer"):
 					GameLoop.currentScreen = new InGame();
+					break;
+				
+				case("Exit Game"):
+					GameLoop.running = false;
 					break;
 				}
 			}
