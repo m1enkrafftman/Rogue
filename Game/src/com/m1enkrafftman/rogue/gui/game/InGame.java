@@ -10,6 +10,7 @@ import com.m1enkrafftman.rogue.backend.DisplayFactory;
 import com.m1enkrafftman.rogue.entity.EntityPlayer;
 import com.m1enkrafftman.rogue.external.BackTile;
 import com.m1enkrafftman.rogue.external.Collideable;
+import com.m1enkrafftman.rogue.external.World;
 import com.m1enkrafftman.rogue.gui.FontRenderer;
 import com.m1enkrafftman.rogue.gui.GuiScreen;
 import com.m1enkrafftman.rogue.misc.Cache;
@@ -17,27 +18,24 @@ import com.m1enkrafftman.rogue.misc.Cache;
 public class InGame extends GuiScreen {
 	
 	private EntityPlayer thePlayer;
-	private ArrayList<Collideable> collides;
-	private ArrayList<BackTile> backTiles;
 	private ArrayList<String> debug;
 	private boolean toDebug;
+	private World theWorld;
 	
 	public InGame() {
 		super();
 		this.thePlayer = new EntityPlayer(0, 0, 16, 0xff00ff00);
-		collides = new ArrayList<>();
-		backTiles = new ArrayList<>();
+		this.theWorld = new World(50, 50);
 		debug = new ArrayList<>();
-		this.setupWalls();
 		this.toDebug = false;
 	}
 	
-	private void setupWalls() {
-		for(int x = 0; x < 50; x++) {
-			for(int y = 0; y < 38; y++) {
-				this.backTiles.add(new BackTile(x*16, y*16, 16, 0xffffffff));
-			}
-		}
+	public InGame(EntityPlayer p, World w) {
+		super();
+		this.thePlayer = p;
+		this.theWorld = w;
+		debug = new ArrayList<>();
+		this.toDebug = false;
 	}
 
 	public void preRender() {
@@ -49,9 +47,7 @@ public class InGame extends GuiScreen {
 		GL11.glPushMatrix();
 		this.preRender();
 		//GL11.glTranslated(this.thePlayer.getMinX() - (Cache.width/2), this.thePlayer.getMinY() - (Cache.height/2), 0);
-		for(BackTile b : this.backTiles) {
-			b.renderWall();
-		}
+		this.theWorld.renderWorld();
 		this.thePlayer.renderLiving();
 		FontRenderer.drawStringWithColor("Rogue", 3, 12, 0xffffffff);
 		this.renderDebug();
@@ -96,7 +92,9 @@ public class InGame extends GuiScreen {
 	
 	public void checkForMovement() {
 		if(Keyboard.isKeyDown(Keyboard.KEY_W)) {
-			this.thePlayer.moveForward(5);
+			this.thePlayer.moveForward(5, this.theWorld);
+		}else if(Keyboard.isKeyDown(Keyboard.KEY_D)) {
+			this.thePlayer.moveBackward(2, this.theWorld);
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_A)) {
 			this.thePlayer.rotateLeft();

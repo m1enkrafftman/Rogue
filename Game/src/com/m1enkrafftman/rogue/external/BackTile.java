@@ -11,8 +11,7 @@ public class BackTile extends EntityWall {
 		super(minX, minY, width, color);
 	}
 	
-	@Override
-	public void renderWall() {
+	public void renderTile() {
 		GL11.glPushMatrix();
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);

@@ -1,0 +1,19 @@
+INDEX VERSION 1.126+C:\Users\m1\Desktop\RogueWorkspace\Rogue\Game\.metadata\.plugins\org.eclipse.jdt.core
+3742699242.index
+3626931047.index
+683184654.index
+1144188029.index
+4149142647.index
+4018706093.index
+2706502329.index
+2708239607.index
+3090363452.index
+2577175673.index
+3256372620.index
+384216248.index
+2409110196.index
+1403368039.index
+3015671029.index
+728132027.index
+2438510636.index
+1820024274.index

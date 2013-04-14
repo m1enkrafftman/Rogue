@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import org.lwjgl.opengl.GL11;
 
 import com.m1enkrafftman.rogue.external.Collideable;
+import com.m1enkrafftman.rogue.external.World;
 import com.m1enkrafftman.rogue.misc.Cache;
-import com.m1enkrafftman.rogue.misc.CollisionHelper;
 import com.m1enkrafftman.rogue.misc.Location;
 import com.m1enkrafftman.rogue.misc.MathHelper;
 
@@ -19,20 +19,24 @@ public class EntityPlayer extends EntityLiving {
 		this.rotation = 0.0f;
 	}
 	
-	public void moveForward(int speed) {
+	public void moveForward(int speed, World w) {
 		double xDelta = Math.sin(Math.toRadians(this.rotation)) * speed;
 		double yDelta = Math.cos(Math.toRadians(this.rotation)) * speed;
 		int xInt = (int)xDelta;
 		int yInt = (int)yDelta;
-		this.setLocation(new Location(this.getMinX() + xInt, this.getMinY() + yInt));
+		Location toMove = new Location(this.getMinX() + xInt, this.getMinY() + yInt);
+		if(w.canMove(this.getPoints()))
+			this.setLocation(toMove);
 	}
 	
-	public void moveBackward(int speed) {
+	public void moveBackward(int speed, World w) {
 		double xDelta = Math.sin(Math.toRadians(this.rotation)) * speed;
 		double yDelta = Math.cos(Math.toRadians(this.rotation)) * speed;
 		int xInt = (int)xDelta;
 		int yInt = (int)yDelta;
-		this.setLocation(new Location(this.getMinX() - xInt, this.getMinY() - yInt));
+		Location toMove = new Location(this.getMinX() - xInt, this.getMinY() - yInt);
+		if(w.canMove(this.getPoints()))
+			this.setLocation(toMove);
 	}
 	
 	public void rotateLeft() {

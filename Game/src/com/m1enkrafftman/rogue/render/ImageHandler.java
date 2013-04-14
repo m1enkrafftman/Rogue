@@ -17,6 +17,7 @@ public class ImageHandler {
 		textures.add(new Image("player"));
 		textures.add(new Image("floor"));
 		textures.add(new Image("title"));
+		textures.add(new Image("wood"));
 	}
 	
 	public Texture getTextureByName(String s) {

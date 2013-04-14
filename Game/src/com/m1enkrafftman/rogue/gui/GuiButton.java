@@ -24,13 +24,9 @@ public class GuiButton extends Gui {
 	
 	public void handleMouse(int x, int y) {
 		y = 600-y;
-		System.out.println("# X: " + x + "  |  Y: " + y);
-		System.out.println("$ X: " + this.x + "  |  Y: " + this.y);
-		System.out.println("& X: " + (this.x + this.width) + "  |  Y: " + (this.y + this.height));
 		if(x > this.x && x < (this.x + this.width) &&
 				y > this.y && y < (this.y + this.height)) {
 			this.setBoolean(true);
-			System.out.println("TOGGLE");
 		}
 	}
 	
