@@ -73,6 +73,7 @@ public class InGame extends GuiScreen {
 			this.debug.add("X: " + this.thePlayer.getMinX());
 			this.debug.add("Y: " + this.thePlayer.getMinY());
 			this.debug.add("Rot: " + this.thePlayer.getRotation());
+			this.debug.add("Col: " + this.thePlayer.getCollided());
 			this.debug.add("FPS: " + Cache.fps);
 			int x = 3; int y = 22;
 			for(String s: this.debug) {
@@ -109,9 +110,7 @@ public class InGame extends GuiScreen {
 	
 	public void checkForMovement() {
 		if(Keyboard.isKeyDown(Keyboard.KEY_W)) {
-			this.thePlayer.moveForward(5, this.theWorld);
-		}else if(Keyboard.isKeyDown(Keyboard.KEY_S)) {
-			this.thePlayer.moveBackward(2, this.theWorld);
+			this.thePlayer.moveForward(4, this.theWorld);
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_A)) {
 			this.thePlayer.rotateLeft();

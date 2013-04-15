@@ -46,6 +46,10 @@ public class World {
 		}
 	}
 	
+	public ArrayList<WorldStore> getStorage() {
+		return this.storage;
+	}
+	
 	public boolean canMove(ArrayList<Point> points) {
 		for(WorldStore w : this.storage) {
 			if(w.canMove(points)) {

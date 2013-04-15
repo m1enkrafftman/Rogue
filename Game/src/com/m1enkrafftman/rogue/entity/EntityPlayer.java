@@ -3,9 +3,12 @@ package com.m1enkrafftman.rogue.entity;
 import java.util.ArrayList;
 
 import org.lwjgl.opengl.GL11;
+import org.newdawn.slick.geom.Rectangle;
 
+import com.m1enkrafftman.rogue.external.BackTile;
 import com.m1enkrafftman.rogue.external.Collideable;
 import com.m1enkrafftman.rogue.external.World;
+import com.m1enkrafftman.rogue.external.WorldStore;
 import com.m1enkrafftman.rogue.misc.Cache;
 import com.m1enkrafftman.rogue.misc.Location;
 import com.m1enkrafftman.rogue.misc.MathHelper;
@@ -13,6 +16,7 @@ import com.m1enkrafftman.rogue.misc.MathHelper;
 public class EntityPlayer extends EntityLiving {
 
 	public float rotation;
+	private boolean collided = false;
 	
 	public EntityPlayer(int minX, int minY, int width, int color) {
 		super(minX, minY, width, color);
@@ -24,19 +28,29 @@ public class EntityPlayer extends EntityLiving {
 		double yDelta = Math.cos(Math.toRadians(this.rotation)) * speed;
 		int xInt = (int)xDelta;
 		int yInt = (int)yDelta;
+		
 		Location toMove = new Location(this.getMinX() + xInt, this.getMinY() + yInt);
-		if(w.canMove(this.getPoints()))
+		Location negMove = new Location(this.getMinX() - xInt, this.getMinY() - yInt);
+		
+		if(this.canMove(w, toMove)) {
 			this.setLocation(toMove);
+			this.collided = false;
+		}else {
+			this.setLocation(negMove);
+			this.collided = true;
+		}
 	}
 	
-	public void moveBackward(int speed, World w) {
-		double xDelta = Math.sin(Math.toRadians(this.rotation)) * -speed;
-		double yDelta = Math.cos(Math.toRadians(this.rotation)) * -speed;
-		int xInt = (int)xDelta;
-		int yInt = (int)yDelta;
-		Location toMove = new Location(this.getMinX() + xInt, this.getMinY() + yInt);
-		if(w.canMove(this.getPoints()))
-			this.setLocation(toMove);
+	public boolean getCollided() {
+		return this.collided;
+	}
+	
+	public boolean blockIsCollideable(WorldStore s) {
+		if(s.getWall() instanceof BackTile) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 	
 	public void rotateLeft() {
@@ -57,10 +71,17 @@ public class EntityPlayer extends EntityLiving {
 		return (int)this.rotation;
 	}
 	
-	public boolean canMove(int delX, int delY, ArrayList<Collideable> walls) {
-		for(Collideable c : walls) {
-			if(MathHelper.getDistance(getMinX()+delX, getMinY()+delY, c.getMinX(), c.getMinY()) <= 1); 
-					return true;
+	public boolean canMove(World w, Location toMove) {
+		for(WorldStore s : w.getStorage()) {
+			if(s.getWall() instanceof Collideable) {
+				Location you = this.getMid();
+				Location it = s.getWall().getMid();
+				double distance = MathHelper.getDistance(you.getX() + 384, you.getY() + 284, it.getX(), it.getY());
+				if(distance < 32) {
+					System.out.println("Collided at Distance: " + distance);
+					return false;
+				}
+			}
 		}
 		return true;
 	}

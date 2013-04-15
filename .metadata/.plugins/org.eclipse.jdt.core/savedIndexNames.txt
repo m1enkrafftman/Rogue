@@ -8,7 +8,6 @@ INDEX VERSION 1.126+C:\Users\m1\Desktop\RogueWorkspace\Rogue\Game\.metadata\.plu
 2706502329.index
 2708239607.index
 3090363452.index
-2577175673.index
 3256372620.index
 384216248.index
 2409110196.index

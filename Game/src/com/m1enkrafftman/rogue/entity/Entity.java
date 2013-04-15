@@ -16,6 +16,10 @@ public abstract class Entity {
 		this.health = 20;
 	}
 	
+	public Location getMid() {
+		return (new Location(this.minX + (this.width/2), this.minY + (this.width/2)));
+	}
+	
 	public void setHealth(double d) {
 		this.health = d;
 	}
