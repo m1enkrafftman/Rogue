@@ -23,12 +23,6 @@ public abstract class GuiScreen extends Gui {
 	
 	public abstract void render();
 	
-	public void handleHover() {
-		for(GuiButton b : this.buttons) {
-			b.checkHover(Mouse.getX(), Mouse.getY());
-		}
-	}
-	
 	public abstract void postRender();
 	
 	public abstract void onMouseClick(int key);
@@ -38,7 +32,6 @@ public abstract class GuiScreen extends Gui {
 	public abstract void handleLogic();
 	
 	public void handleMouse() {
-		
 		while (Mouse.next()) {
 			if(!Mouse.getEventButtonState()) continue;
 			this.onMouseClick(Mouse.getEventButton());

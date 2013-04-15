@@ -115,7 +115,6 @@ public class GameLoop {
 	
 	public void logic() {
 		this.timer.update();
-		GameLoop.currentScreen.handleHover();
 		GameLoop.currentScreen.handleMouse();
 		GameLoop.currentScreen.handleKey();
 		GameLoop.currentScreen.handleLogic();
