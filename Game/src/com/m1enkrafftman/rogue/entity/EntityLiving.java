@@ -7,11 +7,37 @@ import com.m1enkrafftman.rogue.render.MiscRender;
 
 public class EntityLiving extends Entity {
 	
+	private int speed = 5;
+	private int attackTick;
+	private boolean dead;
+	
 	public EntityLiving(int minX, int minY, int width, int color) {
 		super(minX, minY, width, color);
+		this.dead = false;
+		this.attackTick = 100;
 	}
 	
-	public void onLivingUpdate(int deltaX, int deltaY, int deltaHealth) {
+	public void setAttackInt(int i) {
+		this.attackTick = i;
+	}
+	
+	public int getAttackInt() {
+		return this.attackTick;
+	}
+	
+	public void incrementAttackTick() {
+		this.setAttackInt(this.getAttackInt() + 1);
+	}
+	
+	public int getSpeed() {
+		return this.speed;
+	}
+	
+	public void setSpeed(int i) {
+		this.speed = i;
+	}
+	
+	public void onLivingUpdate() {
 		
 	}
 	
@@ -28,4 +54,12 @@ public class EntityLiving extends Entity {
 		return a;
 	}
 
+	public boolean getIsLiving() {
+		return !this.dead;
+	}
+	
+	public void setLifeStatus(boolean b) {
+		this.dead = b;
+	}
+	
 }

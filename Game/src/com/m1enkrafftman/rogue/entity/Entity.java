@@ -6,25 +6,25 @@ import com.m1enkrafftman.rogue.misc.Location;
 public abstract class Entity {
 	
 	private int minX, minY, width, color;
-	private double health;
+	private int health;
 	
 	public Entity(int minX, int minY, int width, int color) {
 		this.minX = minX;
 		this.minY = minY;
 		this.width = width;
 		this.color = color;
-		this.health = 20;
+		this.health = 10;
 	}
 	
 	public Location getMid() {
 		return (new Location(this.minX + (this.width/2), this.minY + (this.width/2)));
 	}
 	
-	public void setHealth(double d) {
+	public void setHealth(int d) {
 		this.health = d;
 	}
 	
-	public double getHealth() {
+	public int getHealth() {
 		return this.health;
 	}
 	

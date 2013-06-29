@@ -2,29 +2,29 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="C:/Users/m1/Desktop/3D Game/Rogue/jars/bin/jinput.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/jinput.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/m1/Desktop/3D Game/Rogue/jars/bin/native/windows"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/native/windows"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/m1/Desktop/3D Game/Rogue/jars/bin/lwjgl.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/lwjgl.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/m1/Desktop/3D Game/Rogue/jars/bin/native/windows"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/native/windows"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/m1/Desktop/3D Game/Rogue/jars/bin/lwjgl_util.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/lwjgl_util.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/m1/Desktop/3D Game/Rogue/jars/bin/native/windows"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/native/windows"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/m1/Desktop/3D Game/Rogue/jars/bin/lwjgl_util_applet.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/slick.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/m1/Desktop/3D Game/Rogue/jars/bin/native/windows"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/native/windows"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/m1/Desktop/Game/CraftGame/Game/slick.jar">
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/lwjgl_util_applet.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/m1/Desktop/3D Game/Rogue/jars/bin/native/windows"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/user/Desktop/Coding/Libraries/lwjgllibs/native/windows"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>

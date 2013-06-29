@@ -8,6 +8,11 @@ public class FontRenderer {
 		return (s.length() * 8);
 	}
 	
+	public static void drawCenteredString(String s, int x, int y, int color) {
+		int negX = (int)(getStringWidth(s)/2);
+		drawStringWithColor(s, x - negX, y, color);
+	}
+	
 	public static void drawStringWithColor(String s, int x, int y, int objectColor) {
 		GL11.glPushMatrix();
 		float f  = (float)(objectColor >> 24 & 0xff) / 255F;

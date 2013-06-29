@@ -19,8 +19,9 @@ public class MainMenu extends GuiScreen {
 	
 	public MainMenu() {
 		super();
-		this.getButtons().add(new GuiButton("Singleplayer", 300, 280, 200, 40, 0xff0000ff));
-		this.getButtons().add(new GuiButton("Exit Game", 300, 340, 200, 40, 0xff0000ff));
+		this.getButtons().add(new GuiButton("Play Game", 300, 280, 200, 40, 0xff0000ff));
+		this.getButtons().add(new GuiButton("Information", 300, 340, 200, 40, 0xff0000ff));
+		this.getButtons().add(new GuiButton("Exit Game", 300, 400, 200, 40, 0xff0000ff));
 	}
 
 	public void preRender() {
@@ -66,12 +67,16 @@ public class MainMenu extends GuiScreen {
 		for(GuiButton b : this.getButtons()) {
 			if(b.getButtonState()) {
 				switch(b.getName()) {
-				case("Singleplayer"):
+				case("Play Game"):
 					GameLoop.currentScreen = new InGame();
 					break;
 				
 				case("Exit Game"):
 					GameLoop.running = false;
+					break;
+					
+				case("Information"):
+					GameLoop.currentScreen = new InfoScreen();
 					break;
 				}
 			}

@@ -18,6 +18,22 @@ public class ImageHandler {
 		textures.add(new Image("floor"));
 		textures.add(new Image("title"));
 		textures.add(new Image("wood"));
+		textures.add(new Image("water0"));
+		textures.add(new Image("water1"));
+		textures.add(new Image("torch0"));
+		textures.add(new Image("torch1"));
+		textures.add(new Image("grass"));
+		textures.add(new Image("guard"));
+		textures.add(new Image("playerLeft"));
+		textures.add(new Image("playerRight"));
+		textures.add(new Image("guardLeft"));
+		textures.add(new Image("guardRight"));
+		textures.add(new Image("guardAttack"));
+		textures.add(new Image("playerAttack"));
+		textures.add(new Image("entityDead"));
+		textures.add(new Image("bossLeft"));
+		textures.add(new Image("bossRight"));
+		textures.add(new Image("bossAttack"));
 	}
 	
 	public Texture getTextureByName(String s) {
